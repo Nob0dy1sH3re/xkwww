@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Nobody.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #7F00FF, #E100FF, #8A2BE2, #4B0082);
+            background-size: 600% 600%;
+            animation: liquidFlow 12s ease infinite;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* 背景光晕层 */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 200vw;
+            height: 200vh;
+            background: radial-gradient(circle at center, 
+                rgba(255,255,255,0.15) 0%,
+                rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #98FF98;
+            font-size: 4rem;
+            text-shadow: 
+                0 0 20px rgba(152,255,152,0.8),
+                0 0 40px rgba(152,255,152,0.5),
+                0 0 60px rgba(152,255,152,0.3),
+                2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-style: italic;
+            position: relative;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .days-counter {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes liquidFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes textGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .days-counter { font-size: 1.2rem; }
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daisuki.</h1>
+        <div class="days-counter" id="daysCounter"></div>
+    </div>
+
+    <script>
+        const meetDate = new Date('2025-05-18T00:00:00');
+        
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - meetDate;
+            const days = Math.floor(diff / 86400000);
+            document.getElementById('daysCounter').innerHTML = 
+                `Have met xkw for <strong>${days}</strong> days.`;
+        }
+
+        updateCounter();
+        setInterval(updateCounter, 1000);
+    </script>
+</body>
+</html>
