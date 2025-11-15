@@ -66,6 +66,24 @@
             text-shadow: 0 0 10px rgba(255,255,255,0.3);
             position: relative;
             z-index: 2;
+            margin-bottom: 40px;
+        }
+
+        .poetic-text {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            font-family: 'Georgia', 'Garamond', serif;
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+            line-height: 1.8;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            position: relative;
+            z-index: 2;
+            white-space: pre-line;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @keyframes liquidFlow {
@@ -83,6 +101,12 @@
             h1 { font-size: 3rem; }
             .days-counter { font-size: 1.2rem; }
             .container { padding: 20px; }
+            .poetic-text {
+                font-size: 0.9rem;
+                padding: 15px;
+                line-height: 1.6;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -90,6 +114,18 @@
     <div class="container">
         <h1>Daisuki.</h1>
         <div class="days-counter" id="daysCounter"></div>
+
+        <div class="poetic-text">我做了一个奇怪的梦，梦到我在坐前往你这里的飞机。
+我想你了。
+可飞机一直在云层之上，我觉得在飞机上度过了半个世纪。
+我很想你了。
+可是看不到你。
+我真的很想你了。
+于是我醒来，
+忽觉灵感迸发，想写点什么，但又不知道从何写起。
+直至最后，思考再三，便以你之名写思绪，却怎么也写不尽其中的万语千言。
+真抱歉情话没写几句，但足足想了你半个世纪。
+我爱你。</div>
     </div>
 
     <script>
